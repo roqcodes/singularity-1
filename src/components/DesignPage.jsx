@@ -122,7 +122,7 @@ const DesignPage = ({ onNavigate }) => {
     <div className="h-screen w-full relative bg-white overflow-hidden">
       {/* Brand logo */}
       <div className="absolute top-8 left-0 right-0 text-center z-20">
-        <h2 className="text-xl tracking-brand font-light text-gray-800">S I N G U L A R I T Y</h2>
+        <h2 className="text-xl tracking-brand font-light text-gray-800">singularit</h2>
       </div>
 
       {/* Title header - updated with "Quantum 2 - The Design" */}

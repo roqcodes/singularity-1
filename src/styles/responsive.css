@@ -249,144 +249,34 @@
     margin: 0 !important;
     transform: translateX(0) !important;
   }
-  
-  /* Additional mobile styles for the QuantumPage component */
-  .mobile-py-16 {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-  }
-  
-  .mobile-mb-8 {
-    margin-bottom: 2rem !important;
-  }
-  
-  .mobile-px-4 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  
-  /* Adjust hero section height on mobile */
-  .mobile-hero-height {
-    height: 60vh !important;
-  }
-  
-  /* Improve carousel navigation on mobile */
-  .carousel-nav-button {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    opacity: 0.8 !important;
-  }
-  
-  /* Make sure video controls are easy to tap on mobile */
-  video::-webkit-media-controls {
-    opacity: 1 !important;
-  }
-  
-  /* Ensure proper spacing for back to top button on mobile */
-  .back-to-top-mobile {
-    bottom: 1rem !important;
-    right: 1rem !important;
-  }
-  
-  /* Adjust ProjectsPage card grid on mobile */
-  .projects-grid-mobile {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-  
-  /* Make project cards take up full width on smallest screens */
-  .project-card-mobile {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  /* Ensure text is readable on mobile */
-  .mobile-text-center {
-    text-align: center !important;
-  }
 }
 
+/* Extra small devices (phones, less than 380px) */
 @media screen and (max-width: 380px) {
   .text-xl.tracking-brand.font-light {
     font-size: 0.875rem !important;
     letter-spacing: 0.25em !important;
-    top: 1rem !important;
   }
 }
 
-/* Specific styles for QuantumPage */
+/* IntroPage mobile styles */
 @media screen and (max-width: 767px) {
-  /* Adjust hero section for better mobile view */
-  .quantum-hero-section {
-    height: 70vh !important;
-    margin-top: 3rem !important;
+  .intro-quantum-text h1 {
+    font-size: clamp(70px, 15vw, 150px) !important;
   }
   
-  /* Improve hero text readability on mobile */
-  .quantum-hero-title {
-    font-size: 2.5rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-  
-  .quantum-hero-subtitle {
-    font-size: 1.125rem !important;
-    line-height: 1.5 !important;
-  }
-  
-  /* Better spacing for about section on mobile */
-  .quantum-about-section {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
-  
-  /* Adjust documentation cards for mobile */
-  .documentation-cards-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-  
-  /* Improve gallery layout on mobile */
-  .quantum-gallery-grid {
-    grid-template-columns: 1fr !important;
-  }
-  
-  /* Make videos responsive on mobile */
-  .quantum-video-container {
+  .intro-drone-image {
     width: 100% !important;
-    max-width: none !important;
+    max-width: 400px !important;
+    margin-top: 25% !important;
   }
 }
 
-/* Specific styles for ProjectsPage */
-@media screen and (max-width: 767px) {
-  /* Better alignment for project cards on mobile */
-  .projects-page-container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  
-  /* Adjust project title on mobile */
-  .projects-title {
-    font-size: 2.5rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  /* Improve project cards on mobile */
-  .project-card {
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* Better spacing for back button on mobile */
-  .back-button-container {
-    margin-top: 2rem !important;
-  }
-}
-
+/* AboutPage mobile styles */
 @media screen and (max-width: 767px) {
   .about-page-content {
-    padding: 2rem 1rem !important;
+    padding: 1rem !important;
+    margin-top: 4rem !important; 
   }
   
   .about-page-heading {
@@ -395,126 +285,57 @@
   
   .about-page-text {
     font-size: 1rem !important;
-    line-height: 1.5 !important;
   }
 }
 
+/* GalleryPage mobile styles */
 @media screen and (max-width: 767px) {
   .gallery-page .grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(3, 1fr) !important;
   }
   
   .gallery-page .content-title {
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
   }
   
   .gallery-page .content-paragraph {
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
   }
   
   .gallery-page .thumbnails {
-    padding: 0.5rem !important;
+    bottom: 5rem !important;
   }
   
   .gallery-page .thumbnail {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 0 1rem 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 5px !important;
   }
 }
 
+/* DesignPage mobile styles */
 @media screen and (max-width: 767px) {
   .design-page-overlay {
-    padding: 1.5rem !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
+    width: 90% !important;
+    max-width: 100% !important;
+    left: 5% !important;
+    right: 5% !important;
   }
   
   .design-page-title {
-    font-size: 1.75rem !important;
-    letter-spacing: 0.1em !important;
+    font-size: 1.5rem !important;
   }
 }
 
+/* SidebarNavigation mobile styles */
 @media screen and (max-width: 767px) {
   .menu-button {
-    padding: 0.5rem !important;
+    top: 1rem !important;
+    left: 1rem !important;
   }
   
   .nav-menu-item {
-    padding: 1rem 0.5rem !important;
+    font-size: 2.5rem !important;
   }
-}
-
-/* Animation optimizations for mobile */
-@media screen and (max-width: 767px) {
-  /* Reduce animation intensity on mobile for better performance */
-  .mobile-reduced-motion {
-    transition-duration: 0.2s !important;
-  }
-  
-  /* Disable certain hover effects that don't make sense on touch devices */
-  .hover\:scale-105:hover {
-    transform: scale(1) !important;
-  }
-  
-  /* Ensure video controls are always visible on mobile */
-  video::-webkit-media-controls {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  /* Make buttons and interactive elements larger on mobile for better touch targets */
-  .mobile-touch-target {
-    min-height: 44px !important;
-    min-width: 44px !important;
-  }
-}
-
-/* Media query to handle landscape orientation on mobile */
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  /* Adjust hero height for landscape mode */
-  .quantum-hero-section {
-    height: 100vh !important;
-  }
-  
-  /* Improve content layout in landscape mode */
-  .mobile-landscape-layout {
-    flex-direction: row !important;
-  }
-  
-  /* Adjust grid columns for landscape */
-  .mobile-landscape-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-/* Tablet-specific adjustments */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Adjust the documentation card grid for tablets */
-  .documentation-cards-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  
-  /* Optimize gallery layout for tablets */
-  .quantum-gallery-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-/* Fix for Safari-specific issues */
-@supports (-webkit-touch-callout: none) {
-  /* Fix for iOS Safari viewport height issues */
-  .min-h-screen {
-    height: -webkit-fill-available;
-  }
-  
-  /* Fix video playback issues on iOS */
-  video {
-    position: relative;
-    z-index: 1;
-  }
-}
+} 

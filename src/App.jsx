@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from
 import LandingPage from './components/LandingPage';
 import IntroPage from './components/IntroPage';
 import AboutPage from './components/AboutPage';
-import ProjectsPage from './components/ProjectsPage';
-import QuantumPage from './components/QuantumPage';
 import DesignPage from './components/DesignPage';
 import GalleryPage from './components/GalleryPage';
+import ProjectsPage from './components/ProjectsPage';
+import QuantumPage from './components/QuantumPage';
 import './App.css';
 
 // WebGL support detection component
@@ -30,6 +30,7 @@ const SidebarNavigation = () => {
     { id: 'projects', label: 'Projects', path: '/projects' },
     { id: 'design', label: 'Design', path: '/design' },
     { id: 'gallery', label: 'Gallery', path: '/gallery' },
+
   ];
   
   const toggleSidebar = () => {
@@ -86,7 +87,7 @@ const SidebarNavigation = () => {
           
           {/* Footer */}
           <div className="absolute bottom-8 text-center">
-            <p className="text-gray-500 text-sm">© 2025 Singularity</p>
+            <p className="text-gray-500 text-sm">© 2025 singularit</p>
           </div>
         </div>
       </div>
@@ -115,26 +116,6 @@ const AboutWrapper = () => {
   );
 };
 
-const ProjectsWrapper = () => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <SidebarNavigation />
-      <ProjectsPage onNavigate={(page) => navigate(`/${page}`)} />
-    </>
-  );
-};
-
-const QuantumWrapper = () => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <SidebarNavigation />
-      <QuantumPage onNavigate={(page) => navigate(`/${page}`)} />
-    </>
-  );
-};
-
 const DesignWrapper = () => {
   const navigate = useNavigate();
   return (
@@ -155,6 +136,26 @@ const GalleryWrapper = () => {
   );
 };
 
+const ProjectsWrapper = () => {
+  const navigate = useNavigate();
+  return (
+    <>
+      <SidebarNavigation />
+      <ProjectsPage onNavigate={(page) => navigate(`/${page}`)} />
+    </>
+  );
+};
+
+const QuantumWrapper = () => {
+  const navigate = useNavigate();
+  return (
+    <>
+      <SidebarNavigation />
+      <QuantumPage onNavigate={(page) => navigate(`/${page}`)} />
+    </>
+  );
+};
+
 const App = () => {
   return (
     <Router>
@@ -162,10 +163,10 @@ const App = () => {
         <Route path="/" element={<IntroWrapper />} />
         <Route path="/intro" element={<IntroWrapper />} />
         <Route path="/about" element={<AboutWrapper />} />
-        <Route path="/projects" element={<ProjectsWrapper />} />
-        <Route path="/quantum" element={<QuantumWrapper />} />
         <Route path="/design" element={<DesignWrapper />} />
         <Route path="/gallery" element={<GalleryWrapper />} />
+        <Route path="/projects" element={<ProjectsWrapper />} />
+        <Route path="/quantum" element={<QuantumWrapper />} />
       </Routes>
     </Router>
   );

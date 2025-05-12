@@ -21,7 +21,7 @@ const AboutPage = ({ onNavigate }) => {
     >
       {/* Brand logo */}
       <div className="absolute top-8 left-0 right-0 text-center z-20">
-        <h2 className="text-xl tracking-brand font-light">S I N G U L A R I T Y</h2>
+        <h2 className="text-xl tracking-brand font-light">singularit</h2>
       </div>
 
       <div className="flex h-full mobile-flex-col">
