@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Singularity - Interactive 3D Drone Explorer">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Singularity</title>
+    <!-- Preload the model checker script -->
+    <link rel="preload" href="/model-check.js" as="script">
+    <!-- Preload the 3D model file to improve loading time -->
+    <link rel="preload" href="/quadcopter.glb" as="fetch" crossorigin="anonymous">
+    <!-- Load the model checker script before the main application -->
+    <script src="/model-check.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: Arial, sans-serif;">
+        <h2>JavaScript is required</h2>
+        <p>This interactive 3D experience requires JavaScript to be enabled in your browser.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
