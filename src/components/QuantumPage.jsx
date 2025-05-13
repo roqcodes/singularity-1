@@ -886,7 +886,7 @@ const MarutiPage = ({ onNavigate }) => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-xl md:text-2xl max-w-2xl mx-auto text-gray-700"
           >
-            The next generation of quantum technology
+            Student Unmanned Aerial Systems (SUAS) Competition Project
           </motion.p>
         </div>
       </header>
@@ -915,63 +915,63 @@ const MarutiPage = ({ onNavigate }) => {
               onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-              {/* Slideshow images */}
+            {/* Slideshow images */}
               <div style={styles.slideshowContainer}>
-                {carouselImages.map((image, index) => (
-                  <div
-                    key={index}
+              {carouselImages.map((image, index) => (
+                <div
+                  key={index}
                     style={{
                       ...styles.slide,
                       opacity: index === currentSlide ? 1 : 0,
                       zIndex: index === currentSlide ? 10 : 0,
                       pointerEvents: index === currentSlide ? 'auto' : 'none'
                     }}
-                  >
-                    <img
-                      src={image}
+                >
+                  <img
+                    src={image}
                       alt={`Maruti Project Slide ${index + 1}`}
                       style={styles.slideImage}
-                    />
-                  </div>
-                ))}
-                
-                {/* Slideshow arrows */}
-                <button
+                  />
+                </div>
+              ))}
+              
+              {/* Slideshow arrows */}
+              <button
                   style={{
                     ...styles.slideNavButton,
                     ...styles.prevButton
                   }}
                   onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
                   onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)'}
-                  onClick={prevSlide}
-                  aria-label="Previous slide"
-                >
+                onClick={prevSlide}
+                aria-label="Previous slide"
+              >
                   <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
                   style={{
                     ...styles.slideNavButton,
                     ...styles.nextButton
                   }}
                   onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'}
                   onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)'}
-                  onClick={nextSlide}
-                  aria-label="Next slide"
-                >
+                onClick={nextSlide}
+                aria-label="Next slide"
+              >
                   <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-              
-              {/* Slideshow navigation dots */}
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Slideshow navigation dots */}
               <div style={styles.slideNavDots}>
-                {carouselImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
                     style={{
                       ...styles.slideNavDot,
                       ...(index === currentSlide ? styles.slideNavDotActive : {})
@@ -986,11 +986,11 @@ const MarutiPage = ({ onNavigate }) => {
                         e.currentTarget.style.backgroundColor = '#D1D5DB';
                       }
                     }}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
+          </div>
           ) : (
             <div style={{
               textAlign: 'center',
@@ -1013,10 +1013,10 @@ const MarutiPage = ({ onNavigate }) => {
             {carouselImages.length > 0 && (
               <p style={styles.slideCounter}>
                 <span style={styles.slideCounterCurrent}>{currentSlide + 1}</span> / {carouselImages.length}
-              </p>
+            </p>
             )}
             <p style={styles.slideDescription}>
-              Experience our Maruti project through these images showcasing its revolutionary design and capabilities.
+              Experience our Maruti UAV project showcasing the design and capabilities of our autonomous aerial system.
             </p>
           </motion.div>
         </div>
@@ -1052,22 +1052,21 @@ const MarutiPage = ({ onNavigate }) => {
               viewport={{ once: true }}
               style={styles.card}
             >
-              <h3 style={styles.cardTitle}>Revolutionary Technology</h3>
+              <h3 style={styles.cardTitle}>SUAS Competition Project</h3>
               <p style={styles.cardText}>
-                Maruti represents a breakthrough in quantum computing technology, 
-                combining cutting-edge research with practical applications. 
-                Our revolutionary approach to quantum mechanics allows for unprecedented 
-                processing power while maintaining energy efficiency.
+                Project Maruti is Singularity Team's entry for the Student Unmanned Aerial Systems (SUAS) competition 
+                hosted by RoboNation. This annual competition brings together students from around the world to design, 
+                build, and demonstrate fully autonomous unmanned aerial systems.
               </p>
               <p style={styles.cardText}>
-                Developed by a team of leading scientists and engineers, Maruti pushes the 
-                boundaries of what's possible in computational technology, opening new doors 
-                for scientific discovery, cryptography, and artificial intelligence.
+                Held at St. Mary's County Regional Airport in Maryland, the competition challenges teams to create 
+                UAVs capable of autonomous flight, obstacle avoidance, object detection, classification, localization, 
+                and air delivery. Our team has developed the Maruti system to excel in these challenging tasks.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 style={styles.button}
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open('https://robonation.org/programs/student-unmanned-aerial-systems/', '_blank')}
               >
                 Learn More
                 <svg style={{ marginLeft: '0.5rem', width: '1rem', height: '1rem' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1090,17 +1089,17 @@ const MarutiPage = ({ onNavigate }) => {
               }}>
                 {[
                   {
-                    title: "128 Qubit Architecture",
-                    description: "Advanced quantum processing with 128 qubit architecture",
+                    title: "Autonomous Flight",
+                    description: "Advanced autonomous navigation and flight control systems",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                       </svg>
                     )
                   },
                   {
-                    title: "Error Correction",
-                    description: "Superconducting quantum circuits with error correction",
+                    title: "Obstacle Avoidance",
+                    description: "Real-time detection and avoidance of obstacles in flight path",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -1108,8 +1107,8 @@ const MarutiPage = ({ onNavigate }) => {
                     )
                   },
                   {
-                    title: "Hybrid Computing",
-                    description: "Hybrid classical-quantum computational model",
+                    title: "Object Detection",
+                    description: "Computer vision system for accurate object identification",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -1117,8 +1116,8 @@ const MarutiPage = ({ onNavigate }) => {
                     )
                   },
                   {
-                    title: "Energy Efficient",
-                    description: "Energy-efficient cooling system for extended operation",
+                    title: "Air Delivery",
+                    description: "Precision payload delivery and deployment system",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -1126,8 +1125,8 @@ const MarutiPage = ({ onNavigate }) => {
                     )
                   },
                   {
-                    title: "Framework Compatible",
-                    description: "Compatible with existing quantum programming frameworks",
+                    title: "Mission Planning",
+                    description: "Advanced waypoint planning and mission execution software",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -1136,7 +1135,7 @@ const MarutiPage = ({ onNavigate }) => {
                   },
                   {
                     title: "Modular Design",
-                    description: "Modular design for future upgrades and scaling",
+                    description: "Modular architecture for rapid repair and field adaptability",
                     icon: (
                       <svg style={styles.featureIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
@@ -1163,8 +1162,8 @@ const MarutiPage = ({ onNavigate }) => {
                     }}
                   >
                     <div style={styles.featureIconContainer}>
-                      {feature.icon}
-                    </div>
+                        {feature.icon}
+                      </div>
                     <div style={styles.featureContent}>
                       <h4 style={styles.featureTitle}>{feature.title}</h4>
                       <p style={styles.featureDescription}>{feature.description}</p>
@@ -1193,7 +1192,7 @@ const MarutiPage = ({ onNavigate }) => {
             }}>Resources</h2>
             <div style={styles.sectionDivider}></div>
             <p style={styles.resourcesDescription}>
-              Access technical documentation, research papers, and support resources to maximize your Maruti experience.
+              Access technical documentation, competition guidelines, and team resources for our SUAS project.
             </p>
           </motion.div>
           
@@ -1258,7 +1257,7 @@ const MarutiPage = ({ onNavigate }) => {
               </motion.div>
             ))}
           </div>
-          
+      
           {/* Additional Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1279,13 +1278,13 @@ const MarutiPage = ({ onNavigate }) => {
                 backgroundColor: '#059669'
               }}
               whileHover={{ scale: 1.05 }}
-              onClick={() => window.open('https://example.com/quantum-demo', '_blank')}
+              onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
             >
               <svg style={{ marginRight: '0.5rem', width: '1.25rem', height: '1.25rem' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Watch Live Demo
+              Watch Flight Demo
             </motion.button>
           </motion.div>
           
@@ -1355,7 +1354,7 @@ const MarutiPage = ({ onNavigate }) => {
           </motion.div>
         </div>
       </section>
-      
+            
       {/* Section 4: Gallery */}
       <section style={styles.gallerySection}>
         <div style={styles.sectionInner}>
@@ -1372,7 +1371,7 @@ const MarutiPage = ({ onNavigate }) => {
             }}>Gallery</h2>
             <div style={styles.sectionDivider}></div>
             <p style={styles.resourcesDescription}>
-              Explore Maruti through our collection of images and videos.
+              Explore our Maruti UAV through photos and videos of our development and flight tests.
             </p>
           </motion.div>
           
