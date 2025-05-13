@@ -1,21 +1,41 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { Flip } from 'gsap/Flip';
 import '../styles/gallery.css';
 
-// Import local images
+// Import gallery images directly
 import image1 from '../assets/images/gallery/image-1.png';
 import image2 from '../assets/images/gallery/image-2.png';
 import image3 from '../assets/images/gallery/image-3.png';
 import image4 from '../assets/images/gallery/image-4.png';
 import image5 from '../assets/images/gallery/image-5.png';
 import image6 from '../assets/images/gallery/image.png';
+import image7 from '../assets/images/gallery/IMG20250427170219.jpg';
+import image8 from '../assets/images/gallery/IMG20250427170311.jpg';
+import image9 from '../assets/images/gallery/IMG20250427185512.jpg';
+import image10 from '../assets/images/gallery/IMG20250427185934.jpg';
+import image11 from '../assets/images/gallery/image-1.avif';
 
 // Register GSAP plugins
 gsap.registerPlugin(CustomEase, Flip);
 
 const GalleryPage = () => {
+  // State for gallery images
+  const [galleryImages] = useState([
+    { src: image1, name: 'image-1' },
+    { src: image2, name: 'image-2' },
+    { src: image3, name: 'image-3' },
+    { src: image4, name: 'image-4' },
+    { src: image5, name: 'image-5' },
+    { src: image6, name: 'image' },
+    { src: image7, name: 'IMG20250427170219' },
+    { src: image8, name: 'IMG20250427170311' },
+    { src: image9, name: 'IMG20250427185512' },
+    { src: image10, name: 'IMG20250427185934' },
+    { src: image11, name: 'image-1-avif' }
+  ]);
+
   const preloaderRef = useRef(null);
   const preloaderCounterRef = useRef(null);
   const contentRef = useRef(null);
@@ -107,8 +127,8 @@ const GalleryPage = () => {
     // State
     let currentMode = "grid";
     let isAnimating = false;
-    let activeIndex = 4; // Default to 5th image (index 4)
-    let previousIndex = 4; // Track previous index for transitions
+    let activeIndex = Math.min(4, galleryImages.length - 1); // Default to 5th image (index 4) or last image if fewer
+    let previousIndex = activeIndex; // Track previous index for transitions
     let slideDirection = "right"; // Default slide direction
 
     // Store all image URLs for easy access
@@ -116,8 +136,8 @@ const GalleryPage = () => {
       (item) => item.querySelector(".grid-item-img").style.backgroundImage
     );
 
-    // Content for each slide
-    const slideContent = [
+    // Content for each slide - use a default set if not enough images
+    const defaultSlideContent = [
       {
         title: "URBAN GEOMETRY",
         paragraph:
@@ -149,6 +169,21 @@ const GalleryPage = () => {
           "Touch with your eyes. Feel the rough and smooth. These surfaces tell stories of time and transformation. Our minds crave texture—it grounds us in the physical world. In an increasingly digital existence, these tactile reminders connect us to our primal nature and the healing power of sensory experience."
       }
     ];
+    
+    // Use image names for titles if available, or default content
+    const slideContent = galleryImages.map((img, index) => {
+      if (index < defaultSlideContent.length) {
+        return {
+          title: img.name.toUpperCase().replace(/-/g, ' '),
+          paragraph: defaultSlideContent[index].paragraph
+        };
+      } else {
+        return {
+          title: img.name.toUpperCase().replace(/-/g, ' '),
+          paragraph: "Explore the unique visual narrative captured in this image."
+        };
+      }
+    });
 
     // Get grid item by index
     const getGridItemByIndex = (index) => {
@@ -157,8 +192,8 @@ const GalleryPage = () => {
 
     // Update content based on active index
     const updateContent = (index) => {
-      // Get the content for this index
-      const content = slideContent[index];
+      // Get the content for this index, use first one if index out of bounds
+      const content = slideContent[index] || slideContent[0];
 
       // Update the title
       contentTitleSpan.textContent = content.title;
@@ -675,8 +710,10 @@ const GalleryPage = () => {
     });
 
     // Event listeners
-    switchGrid.onclick = () => toggleView("grid");
-    switchSlider.onclick = () => toggleView("slider");
+    if (switchGrid && switchSlider) {
+      switchGrid.addEventListener("click", () => toggleView("grid"));
+      switchSlider.addEventListener("click", () => toggleView("slider"));
+    }
 
     // Add keyboard navigation for slider mode
     document.addEventListener("keydown", (e) => {
@@ -733,24 +770,11 @@ const GalleryPage = () => {
       <div className="container">
         <div className="grid-container" ref={gridContainerRef}>
           <div className="grid" id="grid" ref={gridRef}>
-            <div className="grid-item" data-index="0">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image1})` }}></div>
-            </div>
-            <div className="grid-item" data-index="1">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image2})` }}></div>
-            </div>
-            <div className="grid-item" data-index="2">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image3})` }}></div>
-            </div>
-            <div className="grid-item" data-index="3">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image4})` }}></div>
-            </div>
-            <div className="grid-item target" id="target-item" data-index="4">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image5})` }}></div>
-            </div>
-            <div className="grid-item" data-index="5">
-              <div className="grid-item-img" style={{ backgroundImage: `url(${image6})` }}></div>
-            </div>
+            {galleryImages.map((image, index) => (
+              <div key={index} className="grid-item" data-index={index}>
+                <div className="grid-item-img" style={{ backgroundImage: `url(${image.src})` }}></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -771,24 +795,11 @@ const GalleryPage = () => {
       </div>
 
       <div className="thumbnails">
-        <div className="thumbnail" data-index="0">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image1})` }}></div>
-        </div>
-        <div className="thumbnail" data-index="1">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image2})` }}></div>
-        </div>
-        <div className="thumbnail" data-index="2">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image3})` }}></div>
-        </div>
-        <div className="thumbnail" data-index="3">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image4})` }}></div>
-        </div>
-        <div className="thumbnail active" data-index="4">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image5})` }}></div>
-        </div>
-        <div className="thumbnail" data-index="5">
-          <div className="thumbnail-img" style={{ backgroundImage: `url(${image6})` }}></div>
-        </div>
+        {galleryImages.map((image, index) => (
+          <div key={index} className={`thumbnail ${index === 0 ? "thumbnail-active" : ""}`} data-index={index}>
+            <div className="thumbnail-img" style={{ backgroundImage: `url(${image.src})` }}></div>
+          </div>
+        ))}
       </div>
 
       <div className="switch" id="switch" ref={switchRef}>
