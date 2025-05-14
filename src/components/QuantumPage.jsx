@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import heroImage from '../assets/images/hero.png';
-import singularityDoc from '../assets/docs/singularity_doc.pdf';
+import singularityDoc from '../assets/docs/Singularity_Doc.pdf';
 
 // Import images directly since Vite doesn't support require.context
 import image1 from '../assets/images/qGallery/image-1.jpeg';

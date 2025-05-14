@@ -217,7 +217,7 @@ const AboutPage = ({ onNavigate }) => {
             className="text-[200px] font-block leading-relaxed mt-[-20px] mb-50 about-page-heading"
             style={{ letterSpacing: "-0.02em" }}
           >
-            <b>Quantum 2.</b>
+            <b>Singularit</b>
           </motion.h1>
           
           {/* Lorem ipsum text */}
