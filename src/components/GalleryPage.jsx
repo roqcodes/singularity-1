@@ -36,8 +36,6 @@ const GalleryPage = () => {
     { src: image11, name: 'image-1-avif' }
   ]);
 
-  const preloaderRef = useRef(null);
-  const preloaderCounterRef = useRef(null);
   const contentRef = useRef(null);
   const contentTitleRef = useRef(null);
   const contentParagraphRef = useRef(null);
@@ -50,37 +48,8 @@ const GalleryPage = () => {
   const switchRef = useRef(null);
   
   useEffect(() => {
-    // Create preloader animation
-    const preloader = preloaderRef.current;
-    const preloaderCounter = preloaderCounterRef.current;
-
-    let count = 0;
-    const duration = 2048;
-    const increment = 5;
-    const interval = 128;
-
-    const counterInterval = setInterval(() => {
-      count += increment;
-
-      if (count <= 100) {
-        preloaderCounter.textContent = count;
-      } else {
-        preloaderCounter.textContent = "100";
-        clearInterval(counterInterval);
-
-        setTimeout(() => {
-          preloader.classList.add("preloader-hidden");
-
-          setTimeout(() => {
-            initApp();
-          }, 256);
-        }, 256);
-      }
-    }, interval);
-
-    return () => {
-      clearInterval(counterInterval);
-    };
+    // Initialize the app immediately
+    initApp();
   }, []);
 
   // Initialize the main application
@@ -762,11 +731,6 @@ const GalleryPage = () => {
 
   return (
     <div className="gallery-page">
-      {/* Preloader */}
-      <div className="preloader" ref={preloaderRef}>
-        <div className="preloader-counter" ref={preloaderCounterRef}>0</div>
-      </div>
-
       <div className="container">
         <div className="grid-container" ref={gridContainerRef}>
           <div className="grid" id="grid" ref={gridRef}>

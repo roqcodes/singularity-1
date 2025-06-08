@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import heroImage from '../assets/images/hero.png';
 
 const IntroPage = ({ onNavigate }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,7 +38,7 @@ const IntroPage = ({ onNavigate }) => {
             zIndex: 0, 
             pointerEvents: "none",
             textAlign: "center",
-            marginTop: "-15%" // Slightly adjusted to move text up
+            marginTop: "-15%"
           }}
         >
           <h1 className="text-black font-bold" 
@@ -64,18 +66,38 @@ const IntroPage = ({ onNavigate }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "15%" // Adjusted to position image slightly lower
+            marginTop: "15%"
           }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <img 
+          <motion.img 
             src={heroImage} 
             alt="Quantum Drone" 
             style={{ 
               width: "100%",
               height: "auto",
               objectFit: "contain",
-              filter: "drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08))"
-            }} 
+              filter: isHovered 
+                ? "drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08)) sepia(20%) hue-rotate(160deg) saturate(120%)"
+                : "drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08))"
+            }}
+            animate={{
+              y: isHovered ? [0, -10, 0] : 0,
+              scale: isHovered ? 1.02 : 1
+            }}
+            transition={{
+              y: {
+                duration: 2,
+                repeat: isHovered ? Infinity : 0,
+                ease: "easeInOut"
+              },
+              scale: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }
+            }}
           />
         </motion.div>
       </div>
@@ -85,9 +107,25 @@ const IntroPage = ({ onNavigate }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-8 left-0 right-0 text-center z-20 text-gray-400"
+        className="absolute bottom-8 left-0 right-0 text-center z-20"
       >
-        <p className="text-sm tracking-widest">Tap Anywhere To Continue</p>
+        <motion.p 
+          className="text-sm tracking-widest text-gray-400"
+          animate={{
+            opacity: [0.5, 1, 0.5],
+            y: [0, -5, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            textShadow: "0 0 10px rgba(0, 0, 0, 0.1)"
+          }}
+        >
+          Tap Anywhere To Continue
+        </motion.p>
       </motion.div>
     </motion.div>
   );
